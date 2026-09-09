@@ -1,12 +1,14 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { LinkedListComponent } from './components/linked-list/linked-list';
+import { DoubleLinkedListComponent } from './components/double-linked-list/double-linked-list';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [LinkedListComponent, DoubleLinkedListComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('challenge03');
+  title = 'challenge03';
 }

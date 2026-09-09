@@ -1,0 +1,19 @@
+<div style="border: 1px solid #ccc; padding: 20px; border-radius: 8px; margin: 10px;">
+    <h2>🌐 Historial Web (Lista Doblemente Enlazada)</h2>
+
+    @if (currentPageNode(); as node) {
+    <div>
+        <p><strong>Página actual:</strong> {{ node.value.titulo }} ({{ node.value.url }})</p>
+
+        <button (click)="goBack()" [disabled]="!node.prev">
+            ⬅ Atrás
+        </button>
+
+        <button (click)="goForward()" [disabled]="!node.next" style="margin-left: 10px;">
+            Adelante ➔
+        </button>
+    </div>
+    } @else {
+    <p>Historial vacío.</p>
+    }
+</div>

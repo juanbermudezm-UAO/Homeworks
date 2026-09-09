@@ -1,0 +1,12 @@
+<div style="border: 1px solid #ccc; padding: 20px; border-radius: 8px; margin: 10px;">
+    <h2>🎵 Reproductor de Música (Lista Enlazada Simple)</h2>
+
+    @if (currentSongNode(); as node) {
+    <div>
+        <p><strong>Reproduciendo:</strong> {{ node.value.titulo }} - {{ node.value.artista }}</p>
+        <button (click)="nextSong()" [disabled]="!node.next">Siguiente Canción ➔</button>
+    </div>
+    } @else {
+    <p>No hay canciones en la lista.</p>
+    }
+</div>
