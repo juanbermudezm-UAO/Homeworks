@@ -1,0 +1,31 @@
+<h1>Gestion Clinica</h1>
+<br>
+<hr>
+<h2>Medico de guardia: </h2>
+<h3>{{ medicoActual }}</h3>
+
+<button (click)="rotarMedicoManualmente()">Siguiente</button>
+<br><br>
+<hr>
+
+<h2>Pacientes en espera</h2>
+<input type="text" [(ngModel)]="nombrePaciente">
+<button (click)="agregarPaciente()">Agregar</button>
+<br><br>
+<hr>
+
+<button (click)="atenderSiguiente()">Atender Siguiente</button>
+<br>
+
+<ul>
+    <li *ngFor="let paciente of listaEspera.toArray()" style="margin-bottom: 5px;">
+        {{ paciente }}
+    </li>
+</ul>
+
+<h2>Historial de atención</h2>
+<ul>
+    <li *ngFor="let registro of historial.toArray()" style="margin-bottom: 5px;">
+        {{ registro }}
+    </li>
+</ul>
