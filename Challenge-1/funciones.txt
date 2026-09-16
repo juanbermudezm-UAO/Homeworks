@@ -1,0 +1,8 @@
+Las funciones de flecha y las funciones regulares de JS tienen dos diferencias principales:
+- El comportamiento al usar "this" (principal)
+-- Funciones regulares: tienen integrado el objeto this, el cual cambia y depende de quien o como se llama la función.
+-- Funciones flecha: el contexto de la funcion es el que le da valor al this en este caso, ya que se puede heredar el valor desde el padre. 
+
+- Argumentos y objetos
+-- Funciones regulares: al usar objetos tienen acceso a los argumentos, es decir, a todos los parametros de la funcion
+-- Funciones flecha: no pueden leer argumentos por si mismas, por lo tanto, tampoco los parametros.
