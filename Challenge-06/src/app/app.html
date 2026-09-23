@@ -1,0 +1,42 @@
+<main>
+  <h1>{{ title() }} - Árbol Binario</h1>
+
+  <!-- Sección de visualización gráfica D3 -->
+  <section class="card-section">
+    <h3>Visualización del Árbol (D3)</h3>
+    <div #treeContainer class="tree-canvas"></div>
+  </section>
+
+  <!-- Sección: Insertar valores -->
+  <section class="card-section">
+    <h3>Insertar Número</h3>
+    <div class="input-group">
+      <input #nuevoValor type="number" placeholder="Ej. 25" />
+      <button class="btn-primary" (click)="insertarValor(nuevoValor)">
+        Insertar
+      </button>
+    </div>
+  </section>
+
+  <!-- Sección: Recorridos por consola -->
+  <section class="card-section">
+    <h3>Imprimir Recorridos</h3>
+    <div class="button-grid">
+      <button class="btn-secondary" (click)="arbol.preorden()">PreOrder</button>
+      <button class="btn-secondary" (click)="arbol.inorden()">InOrder</button>
+      <button class="btn-secondary" (click)="arbol.postorden()">PostOrder</button>
+    </div>
+    <p class="console-note">💡 Abre la consola (F12) para ver la salida de los recorridos.</p>
+  </section>
+
+  <!-- Sección: Búsqueda -->
+  <section class="card-section">
+    <h3>Buscar en el Árbol</h3>
+    <div class="input-group">
+      <input #buscarInput type="number" placeholder="Ej. 15" />
+      <button class="btn-search" (click)="alertResultado(arbol.buscar(+buscarInput.value))">
+        Buscar
+      </button>
+    </div>
+  </section>
+</main>
