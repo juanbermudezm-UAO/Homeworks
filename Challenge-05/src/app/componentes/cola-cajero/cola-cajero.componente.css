@@ -79,7 +79,7 @@ color: white;
 }
 
 .btn-primary { background-color: #3182ce; }
-.btn-danger { background-color: #e53e3e; }
+.btn-success { background-color: #38a169; }
 .btn:disabled { background-color: #cbd5e0; cursor: not-allowed; }
 
 .badge-count {
@@ -97,32 +97,32 @@ padding: 20px;
 color: #a0aec0;
 }
 
-.stack-container {
+.queue-container {
 display: flex;
 flex-direction: column;
 gap: 10px;
 }
 
-.book-card {
+.person-card {
 background: #f8fafc;
 border: 2px solid #cbd5e0;
 border-radius: 6px;
 padding: 12px;
 }
 
-.top-book {
-border-color: #3182ce;
-background-color: #ebf8ff;
+.front-person {
+border-color: #38a169;
+background-color: #f0fff4;
 }
 
-.book-header {
+.person-header {
 display: flex;
 justify-content: space-between;
 margin-bottom: 4px;
 }
 
-.top-tag {
-background-color: #3182ce;
+.front-tag {
+background-color: #38a169;
 color: white;
 font-size: 0.7rem;
 font-weight: bold;
@@ -135,13 +135,13 @@ font-size: 0.75rem;
 color: #718096;
 }
 
-.book-card h3 {
+.person-card h3 {
 margin: 4px 0;
 color: #2d3748;
 font-size: 1rem;
 }
 
-.book-card p {
+.person-card p {
 margin: 2px 0;
 font-size: 0.85rem;
 color: #4a5568;

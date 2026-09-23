@@ -1,0 +1,60 @@
+<div class="container">
+    <header class="header">
+        <h1>Challenge 05 - Fila del Cajero ATM (Queue / FIFO)</h1>
+    </header>
+
+    <div class="content-grid">
+        <!-- Formulario para agregar una persona a la cola -->
+        <section class="card">
+            <h2>Llegar a la Fila</h2>
+            <form (ngSubmit)="agregarPersona()" class="form">
+                <div class="form-group">
+                    <label for="nombre">Nombre de la Persona:</label>
+                    <input type="text" id="nombre" [(ngModel)]="nuevaPersona.nombre" name="nombre"
+                        placeholder="Ej: Laura Restrepo" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="montoRetiro">Monto a Retirar ($):</label>
+                    <input type="number" id="montoRetiro" [(ngModel)]="nuevaPersona.montoRetiro" name="montoRetiro"
+                        placeholder="Ej: 300000" min="1000" required />
+                </div>
+
+                <div class="button-actions">
+                    <button type="submit" class="btn btn-primary">
+                        Hacer Fila
+                    </button>
+                    <button type="button" class="btn btn-success" (click)="atenderPersona()"
+                        [disabled]="queue.isEmpty()">
+                        Atender Turno
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Visualización de la Cola en Pantalla -->
+        <section class="card">
+            <div class="card-header">
+                <h2>Fila de Espera en Cajero</h2>
+                <span class="badge-count">En espera: {{ queue.size() }}</span>
+            </div>
+
+            <div *ngIf="queue.isEmpty()" class="empty-msg">
+                <p>No hay personas en la fila del cajero.</p>
+            </div>
+
+            <div class="queue-container" *ngIf="!queue.isEmpty()">
+                <div *ngFor="let persona of queue.getItems(); let i = index" class="person-card"
+                    [class.front-person]="i === 0">
+                    <div class="person-header">
+                        <span class="front-tag" *ngIf="i === 0">TURNO ACTUAL</span>
+                        <span class="index-tag">Posición #{{ i + 1 }}</span>
+                    </div>
+                    <h3>{{ persona.nombre }}</h3>
+                    <p><strong>Monto Retiro:</strong> ${{ persona.montoRetiro | number }}</p>
+                    <p><strong>Hora de Llegada:</strong> {{ persona.fechaLlegada | date:'mediumTime' }}</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
