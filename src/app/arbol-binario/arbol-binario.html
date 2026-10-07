@@ -1,0 +1,50 @@
+<div class="binario-container">
+    <h4>Gestión de Árbol Binario</h4>
+    
+    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+        <input 
+            type="text" 
+            [(ngModel)]="nuevoValor" 
+            placeholder="Ingrese un valor" 
+            style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; flex: 1;"
+        />
+        <button 
+            (click)="insertarNodo()" 
+            style="padding: 8px 15px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;"
+        >
+            Insertar
+        </button>
+        <button 
+            (click)="recorridoInorden()" 
+            style="padding: 8px 15px; background-color: #17a2b8; color: white; border: none; border-radius: 4px; cursor: pointer;"
+        >
+            Recorrido Inorden
+        </button>
+    </div>
+
+    @if (recorridoResultado.length > 0) {
+        <div style="background: #ffffff; padding: 10px; border-radius: 4px; border: 1px solid #dee2e6; margin-bottom: 15px;">
+            <strong>Resultado Recorrido:</strong> {{ recorridoResultado.join(' ➔ ') }}
+        </div>
+    }
+
+    <div style="background: #ffffff; padding: 15px; border-radius: 4px; border: 1px solid #dee2e6;">
+        <strong>Estructura Actual:</strong>
+        @if (raiz) {
+            <ul style="margin-top: 10px;">
+                <li>
+                    <strong>Raíz:</strong> {{ raiz.valor }}
+                    @if (raiz.hijos.length > 0) {
+                        <ul>
+                            @for (hijo of raiz.hijos; track $index) {
+                                <li>Hijo {{ $index === 0 ? 'Izquierdo' : 'Derecho' }}: {{ hijo?.valor }}</li>
+                            }
+                        </ul>
+                    }
+                </li>
+            </ul>
+        } @else {
+            <p style="color: #6c757d; margin-top: 10px;">El árbol está vacío. Inserte un valor para comenzar.</p>
+        }
+    </div>
+</div>

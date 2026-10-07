@@ -1,0 +1,105 @@
+.dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #343a40;
+    color: white;
+    padding: 15px 30px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-logout {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-logout:hover {
+    background-color: #b02a37;
+}
+
+.dashboard-body {
+    display: flex;
+    flex: 1;
+    background-color: #f8f9fa;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    border-right: 1px solid #dee2e6;
+    padding: 20px 10px;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+.card-content {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos de los menús recursivos del Árbol N-Ario */
+.menu-list {
+    list-style: none;
+    padding-left: 15px;
+    margin: 5px 0;
+}
+
+.menu-item {
+    margin: 8px 0;
+}
+
+.menu-parent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #495057;
+}
+
+.menu-parent:hover {
+    background-color: #dde2e6;
+}
+
+.menu-link {
+    display: block;
+    padding: 8px 12px;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.menu-link:hover,
+.menu-link.active {
+    background-color: #e7f1ff;
+    font-weight: bold;
+}
+
+.arrow {
+    font-size: 10px;
+}
