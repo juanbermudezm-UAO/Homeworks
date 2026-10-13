@@ -1,92 +1,139 @@
-.dashboard-layout {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-}
-
-.dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #343a40;
-    color: white;
-    padding: 15px 30px;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.btn-logout {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.btn-logout:hover {
-    background-color: #b02a37;
-}
-
-.dashboard-body {
-    display: flex;
-    flex: 1;
-    background-color: #f8f9fa;
-}
-
-.sidebar {
-    width: 260px;
-    background-color: #ffffff;
-    border-right: 1px solid #dee2e6;
-    padding: 20px 10px;
-}
-
-.content {
-    flex: 1;
-    padding: 30px;
-}
-
-.card-content {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.menu-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 5px 0;
-}
-
-.menu-item {
-    margin: 8px 0;
-}
-
-.menu-link {
+/* Estilos globales y reset básico */
+:host {
     display: block;
-    padding: 8px 12px;
-    color: #007bff;
-    text-decoration: none;
-    border-radius: 4px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    min-height: 100vh;
+    padding: 40px 20px;
+    box-sizing: border-box;
 }
 
-.menu-link:hover,
-.menu-link.active {
-    background-color: #e7f1ff;
-    font-weight: bold;
+/* Contenedor principal estilo tarjeta */
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-.binario-container {
-    margin-top: 20px;
-    padding: 20px;
-    background: #f1f3f5;
+/* Título de la aplicación */
+h1 {
+    margin-top: 0;
+    color: #1a252f;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #eef2f5;
+    padding-bottom: 12px;
+    text-align: center;
+}
+
+/* Secciones del panel de control */
+.card-section {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+/* Grupos de entrada de datos y botones */
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilos de inputs */
+input[type="number"] {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
     border-radius: 6px;
-    border: 1px dashed #ced4da;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="number"]:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Estilos de botones */
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Botón primario (Insertar) */
+.btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+/* Botón secundario (Recorridos) */
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: #334155;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e1;
+}
+
+/* Botón de búsqueda */
+.btn-search {
+    background-color: #059669;
+    color: #ffffff;
+}
+
+.btn-search:hover {
+    background-color: #047857;
+}
+
+/* Disposición para botones en cuadrícula/fila */
+.button-grid {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Nota explicativa de la consola */
+.console-note {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+.tree-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    overflow: auto;
+    padding: 10px;
 }

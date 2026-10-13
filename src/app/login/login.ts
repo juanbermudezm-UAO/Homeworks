@@ -24,7 +24,7 @@ export class Login {
     
     if (exito) {
 
-      this.router.navigate(['/arbol-binario']);
+      this.router.navigate(['/inicio']);
     } else {
       this.errorMensaje.set('Credenciales incorrectas. Usa user@mail.com y 123');
     }

@@ -1,105 +1,103 @@
-.dashboard-layout {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #121318;
+    color: #e2e8f0;
+}
+
+.layout {
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-}
-
-.dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #343a40;
-    color: white;
-    padding: 15px 30px;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.btn-logout {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.btn-logout:hover {
-    background-color: #b02a37;
-}
-
-.dashboard-body {
-    display: flex;
-    flex: 1;
-    background-color: #f8f9fa;
+    min-height: 100vh;
 }
 
 .sidebar {
     width: 260px;
-    background-color: #ffffff;
-    border-right: 1px solid #dee2e6;
-    padding: 20px 10px;
+    background-color: #181920;
+    border-right: 1px solid #232530;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    user-select: none;
 }
 
-.content {
-    flex: 1;
-    padding: 30px;
+.sidebar-menu {
+    width: 100%;
 }
 
-.card-content {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-/* Estilos de los menús recursivos del Árbol N-Ario */
 .menu-list {
     list-style: none;
-    padding-left: 15px;
-    margin: 5px 0;
+    padding: 0;
+    margin: 0;
 }
 
 .menu-item {
-    margin: 8px 0;
+    width: 100%;
 }
 
 .menu-parent {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 12px;
-    background-color: #e9ecef;
-    border-radius: 4px;
+    padding: 10px 20px;
+    color: #a0aec0;
+    font-size: 0.92rem;
+    font-weight: 600;
     cursor: pointer;
-    font-weight: bold;
-    color: #495057;
+    transition: all 0.2s ease;
 }
 
 .menu-parent:hover {
-    background-color: #dde2e6;
+    color: #ffffff;
+    background-color: #21232d;
+}
+
+.submenu-container {
+    background-color: #121318;
+    border-left: 2px solid #2d3748;
+    margin-left: 20px;
+    padding: 4px 0;
 }
 
 .menu-link {
     display: block;
-    padding: 8px 12px;
-    color: #007bff;
+    padding: 8px 20px;
+    color: #718096;
+    font-size: 0.88rem;
     text-decoration: none;
+    transition: all 0.2s ease;
     border-radius: 4px;
+    margin: 2px 8px;
 }
 
-.menu-link:hover,
+.menu-link:hover {
+    color: #e2e8f0;
+    background-color: #1a202c;
+}
+
 .menu-link.active {
-    background-color: #e7f1ff;
-    font-weight: bold;
+    color: #ffffff;
+    background-color: #2b4c7e;
+    font-weight: 500;
 }
 
 .arrow {
-    font-size: 10px;
+    font-size: 0.65rem;
+    color: #4a5568;
+    transition: transform 0.2s ease;
+}
+
+.menu-parent:hover .arrow {
+    color: #cbd5e0;
+}
+
+.content {
+    flex: 1;
+    padding: 35px;
+    background-color: #0f1015;
+    color: #f7fafc;
 }
