@@ -1,0 +1,36 @@
+<div class="inicio-container">
+
+    <header class="inicio-header">
+        <div>
+            <h1>¡Hola, {{ auth.usuario() }}!</h1>
+            <p>Bienvenido al Challenge 08. Selecciona la estructura a explorar:</p>
+        </div>
+        <button (click)="salir()" class="btn-salir">
+            Cerrar sesión
+        </button>
+    </header>
+
+    <div class="cards-grid">
+
+        <div class="card card-binario">
+            <div>
+                <h3>🌳 Árbol Binario</h3>
+                <p>Explora la estructura de datos con nodos de máximo dos hijos, inserciones y recorridos.</p>
+            </div>
+            <a routerLink="/arbol-binario" class="btn-card btn-binario">
+                Ir al Árbol Binario
+            </a>
+        </div>
+
+        <div class="card card-nario">
+            <div>
+                <h3>🌿 Árbol N-Ario</h3>
+                <p>Navega por la estructura de múltiples hijos integrada con un menú lateral recursivo.</p>
+            </div>
+            <a routerLink="/arbol-nario" class="btn-card btn-nario">
+                Ir al Árbol N-Ario
+            </a>
+        </div>
+
+    </div>
+</div>
