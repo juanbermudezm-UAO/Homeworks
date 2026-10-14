@@ -17,7 +17,10 @@
     "@angular/forms": "^22.1.0",
     "@angular/platform-browser": "^22.1.0",
     "@angular/router": "^22.1.0",
+    "bootstrap": "^5.3.8",
+    "firebase": "^13.0.0",
     "rxjs": "~7.8.0",
+    "sass": "^1.105.1",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -28,5 +31,10 @@
     "prettier": "^3.8.1",
     "typescript": "~6.0.2",
     "vitest": "^4.0.8"
+  },
+  "allowScripts": {
+    "firebase@13.0.0": true,
+    "sass@1.104.1": true,
+    "sass@1.105.1": true
   }
 }
