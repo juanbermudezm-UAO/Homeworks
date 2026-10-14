@@ -1,0 +1,66 @@
+<div class="arbol-container">
+    <h2>Gestor de Archivos y Carpetas (Árbol N-ario)</h2>
+
+    <div class="user-status" *ngIf="authService.currentUser() as user; else noAuth">
+        <span>Sesión activa: <strong>{{ user.email }}</strong></span>
+        <button class="btn-logout" (click)="logout()">Cerrar Sesión</button>
+    </div>
+
+    <ng-template #noAuth>
+        <div class="alert-auth">
+            <p>Debe estar registrado e iniciar sesión para crear carpetas o archivos.</p>
+            <a routerLink="/login" class="btn-login-redirect">Volver al inicio / Iniciar sesión</a>
+        </div>
+    </ng-template>
+
+    <div *ngIf="!arbol.raiz" class="init-section">
+        <p>El sistema no tiene elementos registrados.</p>
+        <button class="btn-primary" (click)="crearRaizPrincipal()">Crear Carpeta Raíz</button>
+    </div>
+
+    <div class="control-panel" *ngIf="nodoSeleccionado && authService.currentUser()">
+        <h3>Agregar dentro de: <strong>{{ nodoSeleccionado.valor.nombre }}</strong></h3>
+        <p class="owner-info">Creado por: {{ nodoSeleccionado.valor.ownerEmail }}</p>
+
+        <div class="form-row" *ngIf="nodoSeleccionado.valor.tipo === 'carpeta'; else esArchivoMsg">
+            <input type="text" [(ngModel)]="nuevoNombre" placeholder="Nombre del elemento..." />
+
+            <select [(ngModel)]="nuevoTipo">
+                <option value="carpeta">📁 Carpeta</option>
+                <option value="archivo">📄 Archivo</option>
+            </select>
+
+            <button class="btn-primary" (click)="crearElemento()">Guardar</button>
+        </div>
+
+        <ng-template #esArchivoMsg>
+            <div class="warning-text">
+                🚫 Un archivo no puede contener carpetas ni otros archivos.
+            </div>
+        </ng-template>
+    </div>
+
+    <div class="tree-view" *ngIf="arbol.raiz">
+        <ul>
+            <ng-container *ngTemplateOutlet="recursiveNode; context: { $implicit: arbol.raiz }">
+            </ng-container>
+        </ul>
+    </div>
+
+    <ng-template #recursiveNode let-nodo>
+        <li [class.selected]="nodo === nodoSeleccionado">
+            <div class="node-row" (click)="seleccionarNodo(nodo)">
+                <span class="icon">{{ nodo.valor.tipo === 'carpeta' ? '📁' : '📄' }}</span>
+                <span class="name">{{ nodo.valor.nombre }}</span>
+                <span class="badge">{{ nodo.valor.ownerEmail }}</span>
+            </div>
+
+            <ul *ngIf="nodo.valor.tipo === 'carpeta' && nodo.hijos.length > 0">
+                <li *ngFor="let hijo of nodo.hijos">
+                    <ng-container *ngTemplateOutlet="recursiveNode; context: { $implicit: hijo }">
+                    </ng-container>
+                </li>
+            </ul>
+        </li>
+    </ng-template>
+</div>

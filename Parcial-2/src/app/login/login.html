@@ -1,0 +1,39 @@
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>{{ isRegisterMode() ? 'Crear Cuenta' : 'Iniciar Sesión' }}</h2>
+        <p class="subtitle">
+            {{ isRegisterMode() ? 'Regístrate para gestionar archivos' : 'Ingresa con tus credenciales' }}
+        </p>
+
+        <div class="error-banner" *ngIf="errorMessage()">
+            {{ errorMessage() }}
+        </div>
+
+        <form (ngSubmit)="handleSubmit()">
+            <div class="form-group">
+                <label>Correo Electrónico</label>
+                <input type="email" placeholder="usuario@ejemplo.com" [ngModel]="email()"
+                    (ngModelChange)="email.set($event)" name="email" required />
+            </div>
+
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" placeholder="••••••••" [ngModel]="password()"
+                    (ngModelChange)="password.set($event)" name="password" required />
+            </div>
+
+            <button type="submit" class="btn-submit">
+                {{ isRegisterMode() ? 'Registrarse' : 'Ingresar' }}
+            </button>
+        </form>
+
+        <div class="toggle-section">
+            <p>
+                {{ isRegisterMode() ? '¿Ya tienes una cuenta?' : '¿No tienes cuenta?' }}
+                <a href="javascript:void(0)" (click)="toggleMode()">
+                    {{ isRegisterMode() ? 'Inicia sesión aquí' : 'Regístrate aquí' }}
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,4 @@
 import { Injectable, signal } from '@angular/core';
-import { auth } from '../../firebase/config';
 import {
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
@@ -7,29 +6,32 @@ import {
     onAuthStateChanged,
     User
 } from 'firebase/auth';
+import { auth } from '../../firebase/config';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    // Signal para mantener el estado global del usuario activo
-    readonly currentUser = signal<User | null>(null);
+    // Signal para almacenar el estado del usuario logueado en tiempo real
+    currentUser = signal<User | null>(null);
+    isLoading = signal<boolean>(true);
 
     constructor() {
-        // Escucha automáticamente el cambio de estado de la sesión
+        // Escucha cambios en el estado de autenticación de Firebase
         onAuthStateChanged(auth, (user) => {
             this.currentUser.set(user);
+            this.isLoading.set(false);
         });
+    }
+
+    // Registrar un nuevo usuario
+    async register(email: string, pass: string) {
+        return await createUserWithEmailAndPassword(auth, email, pass);
     }
 
     // Iniciar sesión
     async login(email: string, pass: string) {
         return await signInWithEmailAndPassword(auth, email, pass);
-    }
-
-    // Registrar nuevo usuario
-    async register(email: string, pass: string) {
-        return await createUserWithEmailAndPassword(auth, email, pass);
     }
 
     // Cerrar sesión

@@ -1,0 +1,114 @@
+$primary: #2b6cb0;
+$primary-hover: #1a4971;
+$bg-body: #f7fafc;
+$border: #e2e8f0;
+$danger: #e53e3e;
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: $bg-body;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    .auth-card {
+        background: #ffffff;
+        padding: 30px 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 400px;
+        border: 1px solid $border;
+
+        h2 {
+            margin: 0;
+            color: #2d3748;
+            font-size: 1.6rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .error-banner {
+            background-color: #fff5f5;
+            color: $danger;
+            border: 1px solid #feb2b2;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+
+            label {
+                display: block;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: #4a5568;
+                margin-bottom: 5px;
+            }
+
+            input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid $border;
+                border-radius: 4px;
+                font-size: 0.95rem;
+                box-sizing: border-box;
+
+                &:focus {
+                    outline: none;
+                    border-color: $primary;
+                }
+            }
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: $primary;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+
+            &:hover {
+                background-color: $primary-hover;
+            }
+        }
+
+        .toggle-section {
+            text-align: center;
+            margin-top: 20px;
+
+            p {
+                font-size: 0.85rem;
+                color: #718096;
+
+                a {
+                    color: $primary;
+                    text-decoration: none;
+                    font-weight: bold;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
