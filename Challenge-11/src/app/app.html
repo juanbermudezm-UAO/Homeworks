@@ -1,0 +1,67 @@
+<div class="container">
+  <h1>Challenge 11 - Grafo de Personas y Ciudades</h1>
+
+  <div class="grid">
+    <div class="panel">
+      <h3>1. Agregar Ciudad</h3>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="newCityName" placeholder="Nombre de la ciudad" />
+        <button (click)="addCity()">Agregar Ciudad</button>
+      </div>
+
+      <h3>2. Agregar Persona</h3>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="newPersonName" placeholder="Nombre" />
+        <input type="number" [(ngModel)]="newPersonAge" placeholder="Edad" />
+        <select [(ngModel)]="selectedCityForPerson">
+          <option value="" disabled selected>Selecciona Ciudad</option>
+          <option *ngFor="let city of cityNodes" [value]="city.id">{{ city.name }}</option>
+        </select>
+        <button (click)="addPerson()">Agregar Persona</button>
+      </div>
+
+      <h3>3. Conectar Amigos</h3>
+      <div class="form-group">
+        <select [(ngModel)]="friend1Id">
+          <option value="" disabled selected>Persona 1</option>
+          <option *ngFor="let p of personNodes" [value]="p.id">{{ p.name }}</option>
+        </select>
+        <select [(ngModel)]="friend2Id">
+          <option value="" disabled selected>Persona 2</option>
+          <option *ngFor="let p of personNodes" [value]="p.id">{{ p.name }}</option>
+        </select>
+        <button (click)="addFriendship()">Conectar Amistad</button>
+      </div>
+
+      <h3>4. Consultar Personas por Ciudad</h3>
+      <div class="form-group">
+        <select [(ngModel)]="selectedCityToFilter" (change)="filterPeople()">
+          <option value="" selected>Todas las ciudades</option>
+          <option *ngFor="let city of cityNodes" [value]="city.id">{{ city.name }}</option>
+        </select>
+      </div>
+
+      <div class="results" *ngIf="selectedCityToFilter">
+        <h4>Habitantes encontrados:</h4>
+        <ul *ngIf="filteredPeople.length > 0; else noPeople">
+          <li *ngFor="let person of filteredPeople">
+            {{ person.name }} - {{ person.age }} años
+          </li>
+        </ul>
+        <ng-template #noPeople>
+          <p>No hay personas registradas en esta ciudad.</p>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="graph-container">
+      <div class="legend">
+        <span><strong style="color: #ef4444;">●</strong> Ciudad</span>
+        <span><strong style="color: #10b981;">●</strong> Persona</span>
+        <span><strong style="color: #3b82f6;">—</strong> Amistad</span>
+        <span><strong style="color: #888;">- -</strong> Residencia</span>
+      </div>
+      <svg #svgContainer class="d3-svg"></svg>
+    </div>
+  </div>
+</div>
