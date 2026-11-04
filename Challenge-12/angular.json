@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "Challenge-11": {
+    "Challenge-12": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Challenge-11:build:production"
+              "buildTarget": "Challenge-12:build:production"
             },
             "development": {
-              "buildTarget": "Challenge-11:build:development"
+              "buildTarget": "Challenge-12:build:development"
             }
           },
           "defaultConfiguration": "development"

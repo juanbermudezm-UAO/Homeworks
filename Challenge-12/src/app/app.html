@@ -1,0 +1,93 @@
+<div class="container">
+  <h1>Challenge 12 - Buscador Inteligente (Trie + MaxHeap)</h1>
+
+  <div class="grid">
+    <div class="panel">
+      <h3>1. Insertar Producto en Trie</h3>
+      <div class="form-group">
+        <label>Nombre del Producto:</label>
+        <input
+          type="text"
+          [(ngModel)]="nuevoNombreProducto"
+          placeholder="Ej: air max"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Popularidad (1 - 100):</label>
+        <input
+          type="number"
+          [(ngModel)]="nuevaPopularidadProducto"
+          placeholder="Ej: 90"
+        />
+      </div>
+
+      <button (click)="agregarProducto()" class="btn-primary">Guardar Producto</button>
+
+      <h3 class="mt-4">Todos los Productos en el Trie ({{ todosLosProductos.length }})</h3>
+      <div class="all-products-list">
+        <div *ngFor="let item of todosLosProductos" class="mini-card">
+          <span class="product-name">{{ item.nombre }}</span>
+          <span class="badge-pop">{{ item.popularidad }} pts</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>2. Buscador Top K</h3>
+      <div class="form-row">
+        <div class="form-group flex-3">
+          <label>Buscar por Prefijo:</label>
+          <input
+            type="text"
+            [(ngModel)]="prefijoBusqueda"
+            (input)="alBuscar()"
+            placeholder="Ej: air, ad, pu..."
+          />
+        </div>
+
+        <div class="form-group flex-1">
+          <label>Top K:</label>
+          <input
+            type="number"
+            min="1"
+            [(ngModel)]="limiteTopK"
+            (change)="alBuscar()"
+            (input)="alBuscar()"
+          />
+        </div>
+      </div>
+
+      <div class="results-container">
+        <h4>
+          Resultados Top {{ limiteTopK }}
+          <span *ngIf="prefijoBusqueda" class="badge">
+            ({{ resultadosTopK.length }} de {{ totalCoincidenciasPrefijo }} coincidencias)
+          </span>
+        </h4>
+
+        <div *ngIf="resultadosTopK.length > 0; else sinResultados" class="results-list">
+          <div *ngFor="let elemento of resultadosTopK; let i = index" class="result-card">
+            <div class="rank">#{{ i + 1 }}</div>
+            <div class="details">
+              <span class="product-name">{{ elemento.nombre }}</span>
+              <span class="popularity-bar-container">
+                <div
+                  class="popularity-bar"
+                  [style.width.%]="elemento.popularidad"
+                ></div>
+              </span>
+            </div>
+            <div class="score">{{ elemento.popularidad }} pts</div>
+          </div>
+        </div>
+
+        <ng-template #sinResultados>
+          <p class="empty-state">
+            {{ prefijoBusqueda ? 'No se encontraron coincidencias para el prefijo.' : 'Escribe un prefijo para buscar.' }}
+          </p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
