@@ -1,0 +1,8 @@
+@use 'estilos/tema' as *;
+
+body {
+    margin: 0;
+    background-color: $bg-dark;
+    color: $text-primary;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}

@@ -1,0 +1,16 @@
+<section class="panel">
+    <h2>2. TOP Canciones Populares (Max Heap)</h2>
+    <ul class="item-list">
+        @for (song of musicService.topSongs(); track song.id; let i = $index) {
+        <li (click)="musicService.selectSong(song)">
+            <div class="song-meta">
+                <strong>#{{ i + 1 }} · {{ song.title }}</strong>
+                <small>{{ song.artist }} · {{ song.plays }} plays</small>
+            </div>
+            <button class="btn-play" (click)="$event.stopPropagation(); musicService.playSong(song)">
+                +100 ▶
+            </button>
+        </li>
+        }
+    </ul>
+</section>

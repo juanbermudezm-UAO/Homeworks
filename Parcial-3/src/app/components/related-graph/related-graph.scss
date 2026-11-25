@@ -1,0 +1,42 @@
+@use '../../../estilos/tema' as *;
+
+.panel {
+    @include card-surface;
+
+    h2 {
+        margin-top: 0;
+        font-size: 1.15rem;
+        border-bottom: 1px solid $border-subtle;
+        padding-bottom: 0.75rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.item-list {
+    @include list-container;
+}
+
+.song-meta {
+    display: flex;
+    flex-direction: column;
+
+    small {
+        color: $text-secondary;
+        font-size: 0.8rem;
+    }
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1rem;
+
+    select {
+        @include input-field;
+    }
+}
+
+.btn-secondary {
+    @include pill-button($bg-elevated, $text-primary);
+}

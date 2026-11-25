@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { Gifs } from './gifs';
+import { Musica } from './musica';
 
-describe('Gifs', () => {
-  let service: Gifs;
+describe('Musica', () => {
+  let service: Musica;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Gifs);
+    service = TestBed.inject(Musica);
   });
 
   it('should be created', () => {
