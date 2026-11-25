@@ -1,0 +1,24 @@
+<main class="container">
+  <header class="header">
+    <h1>Buscador de GIFs</h1>
+    <div class="search-box">
+      <input type="text" placeholder="Escribe para buscar GIFs..." #txtBuscar (keyup.enter)="buscar(txtBuscar.value)" />
+      <button (click)="buscar(txtBuscar.value)">Buscar</button>
+    </div>
+  </header>
+
+  @if (gifsService.cargando()) {
+  <p class="loading">Cargando GIFs...</p>
+  }
+
+  <section class="gifs-grid">
+    @for (gif of gifsService.gifs(); track gif.id) {
+    <article class="gif-card">
+      <img [src]="gif.images.fixed_height.url" [alt]="gif.title" />
+      @if (gif.title) {
+      <p class="gif-title">{{ gif.title }}</p>
+      }
+    </article>
+    }
+  </section>
+</main>
